@@ -46,6 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Animation\AnimationTestScript.cs" />
      <Compile Include="Assets\Art\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
      <Compile Include="Assets\Art\Standard Assets\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
      <Compile Include="Assets\Art\Standard Assets\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" />
@@ -176,6 +177,7 @@
      <Compile Include="Assets\Scripts\MyCharacterController.cs" />
      <Compile Include="Assets\Scripts\PlayerControl.cs" />
      <Compile Include="Assets\Scripts\PushBarrierAI.cs" />
+     <Compile Include="Assets\Scripts\PushPullControl.cs" />
      <Compile Include="Assets\Scripts\PushTarget.cs" />
      <None Include="Assets\Art\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Art\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />

@@ -89,7 +89,10 @@ public class CameraFollow : MonoBehaviour {
         bool movingRight = false;
      
         float xVelocity = 0f;
-        xVelocity = GameManager.Instance.GetPhysicalPlayer().GetComponent<Rigidbody>().velocity.x;
+        if(GameManager.Instance.GetPhysicalPlayer().GetComponent<MyCharacterController>().IsControlling())
+            xVelocity = GameManager.Instance.GetPhysicalPlayer().GetComponent<Rigidbody>().velocity.x;
+        else
+            xVelocity = GameManager.Instance.GetVirtualPlayer().GetComponent<Rigidbody>().velocity.x;
         if (xVelocity > 0.01f)
         {
             movingRight = true;

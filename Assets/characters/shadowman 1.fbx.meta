@@ -624,23 +624,23 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: shadowman(Clone)
+    - name: shadowman 1(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Body
-      parentName: shadowman(Clone)
+      parentName: shadowman 1(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: default1
-      parentName: shadowman(Clone)
+      parentName: shadowman 1(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:Hips
-      parentName: shadowman(Clone)
+      parentName: shadowman 1(Clone)
       position: {x: 0.0001210516, y: 1.0087719, z: 0.00008551288}
       rotation: {x: -2.7755576e-15, y: 2.5580272e-25, z: -9.216264e-11, w: 1}
       scale: {x: 1, y: 1, z: 1}

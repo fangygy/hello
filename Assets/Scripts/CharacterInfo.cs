@@ -200,7 +200,7 @@ public class CharacterInfo : MonoBehaviour
         transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
     }
 
-
+    
     public void OnAnimatorMove()
     {
         // we implement this function to override the default root motion.
@@ -209,9 +209,12 @@ public class CharacterInfo : MonoBehaviour
         {
             Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
 
+           
+            Debug.Log("x" + m_Animator.deltaPosition.x + "--y" + m_Animator.deltaPosition.y + "--z" + m_Animator.deltaPosition.z);
             // we preserve the existing y part of the current velocity.
-            v.y = m_Rigidbody.velocity.y;
-            m_Rigidbody.velocity = v;
+              v.y = m_Rigidbody.velocity.y;
+             m_Rigidbody.velocity = v;
+            //transform.position = m_Animator.rootPosition;
         }
     }
 

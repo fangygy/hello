@@ -35,16 +35,27 @@ public class HybernationPotController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        m_TargetPosIndicator.transform.position = transform.position + m_RelativeTargetPos;
-        m_TargetPosIndicator.SetActive(m_IndicatorVisible);
+        if (m_PotIsMovable)
+        {
+            m_TargetPosIndicator.transform.position = transform.position + m_RelativeTargetPos;
+            m_TargetPosIndicator.SetActive(m_IndicatorVisible);
+        }
     }
 
     void OnCollisionStay(Collision col)
     {
+        
         if (col.gameObject.tag == "ControlledPlayer")
         {
-            if (Input.GetKey(KeyCode.E) && m_PotIsMovable)
+            if (Input.GetKeyDown(KeyCode.E) && m_PotIsMovable)
             {
+                col.gameObject.GetComponent<CharacterInfo>().SetPushBox(true);
+                Vector3 lookatPos = transform.position;
+                lookatPos.y = col.gameObject.transform.position.y;
+                col.gameObject.transform.LookAt(lookatPos);
+                gameObject.transform.parent = col.gameObject.transform;
+               
+                /*
                 Vector3 diff = transform.position - col.gameObject.transform.position;
                 diff.y = 0f;
                 diff.z = 0f;
@@ -53,14 +64,19 @@ public class HybernationPotController : MonoBehaviour {
                 {
                     m_PotIsMovable = false;
                     OpenPot();
-                }
+                }*/
+
             }
             else if (Input.GetKeyDown(KeyCode.E) && !m_PotIsMovable && !potOpen)
             {
-             
-                    OpenPot();
-                
+                OpenPot();
             }
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                col.gameObject.GetComponent<CharacterInfo>().SetPushBox(false);
+                gameObject.transform.parent = null;
+            }
+            Debug.Log("Inside trigger stay loop");
         }
     }
     public void OpenPot()

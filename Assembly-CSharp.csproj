@@ -46,7 +46,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Animation\AnimationTestScript.cs" />
      <Compile Include="Assets\Art\Standard Assets\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
      <Compile Include="Assets\Art\Standard Assets\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
      <Compile Include="Assets\Art\Standard Assets\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" />
@@ -153,6 +152,7 @@
      <Compile Include="Assets\Art\Volumetric Lights\Scripts\VolumetricLightRenderer.cs" />
      <Compile Include="Assets\Scanner Effect\Scannable.cs" />
      <Compile Include="Assets\Scanner Effect\ScannerEffect.cs" />
+     <Compile Include="Assets\Scripts\AnimationTestScript.cs" />
      <Compile Include="Assets\Scripts\BarrierDriver.cs" />
      <Compile Include="Assets\Scripts\BreakableDoor.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />

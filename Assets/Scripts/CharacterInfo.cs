@@ -25,7 +25,8 @@ public class CharacterInfo : MonoBehaviour
     float m_AnimSpeedMultiplier = 1f;
     [SerializeField]
     float m_GroundCheckDistance = 0.1f;
-
+    [SerializeField]
+    float m_PushAmount = 0.1f;
 
     Rigidbody m_Rigidbody;
     Animator m_Animator;
@@ -39,7 +40,7 @@ public class CharacterInfo : MonoBehaviour
     Vector3 m_CapsuleCenter;
     CapsuleCollider m_Capsule;
     bool m_Crouching;
-
+    bool m_MovingBox = false;
 
     void Start()
     {
@@ -60,15 +61,17 @@ public class CharacterInfo : MonoBehaviour
         // convert the world relative moveInput vector into a local-relative
         // turn amount and forward amount required to head in the desired
         // direction.
-        if (move.magnitude > 1f) move.Normalize();
-        move = transform.InverseTransformDirection(move);
-        CheckGroundStatus();
-        move = Vector3.ProjectOnPlane(move, m_GroundNormal);
-        m_TurnAmount = Mathf.Atan2(move.x, move.z);
-        m_ForwardAmount = move.z;
-
-        ApplyExtraTurnRotation();
-
+   
+          if (move.magnitude > 1f) move.Normalize();
+          move = transform.InverseTransformDirection(move);
+          CheckGroundStatus();
+          move = Vector3.ProjectOnPlane(move, m_GroundNormal);
+          m_TurnAmount = Mathf.Atan2(move.x, move.z);
+          m_ForwardAmount = move.z;
+          m_PushAmount = move.z;
+        if(!m_MovingBox)
+             ApplyExtraTurnRotation();
+        
         // control and velocity handling is different when grounded and airborne:
         if (m_IsGrounded)
         {
@@ -83,6 +86,7 @@ public class CharacterInfo : MonoBehaviour
         PreventStandingInLowHeadroom();
 
         // send input and other state parameters to the animator
+
         UpdateAnimator(move);
     }
 
@@ -135,6 +139,10 @@ public class CharacterInfo : MonoBehaviour
     void UpdateAnimator(Vector3 move)
     {
         // update the animator parameters
+
+        m_Animator.SetBool("PushingBoxes", m_MovingBox);
+
+        m_Animator.SetFloat("PushFloat", m_PushAmount + 0.5f, 0.1f, Time.deltaTime);
         m_Animator.SetFloat("Forward", m_ForwardAmount, 0.1f, Time.deltaTime);
         m_Animator.SetFloat("Turn", m_TurnAmount, 0.1f, Time.deltaTime);
         m_Animator.SetBool("Crouch", m_Crouching);
@@ -210,7 +218,7 @@ public class CharacterInfo : MonoBehaviour
             Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
 
            
-            Debug.Log("x" + m_Animator.deltaPosition.x + "--y" + m_Animator.deltaPosition.y + "--z" + m_Animator.deltaPosition.z);
+           // Debug.Log("x" + m_Animator.deltaPosition.x + "--y" + m_Animator.deltaPosition.y + "--z" + m_Animator.deltaPosition.z);
             // we preserve the existing y part of the current velocity.
               v.y = m_Rigidbody.velocity.y;
              m_Rigidbody.velocity = v;
@@ -227,7 +235,11 @@ public class CharacterInfo : MonoBehaviour
     {
         return m_Rigidbody;
     }
-
+    public void SetPushBox(bool push)
+    {
+        if (m_IsGrounded && !m_Crouching) 
+             m_MovingBox = push;
+    }
     void CheckGroundStatus()
     {
         RaycastHit hitInfo;

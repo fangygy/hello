@@ -23,7 +23,7 @@ TagManager:
   - DataStrip
   - VirtualWorldObstacle
   - PhysicalOnlyObstacle
-  - 
+  - BothWorldObstacle
   - 
   - 
   - 

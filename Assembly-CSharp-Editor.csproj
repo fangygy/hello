@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{C9AE8D2D-F0E2-FCD6-DB47-45494D3FD6FE}</ProjectGuid>
+    <ProjectGuid>{A588AEF9-0C93-7DEB-02FB-A51689F091F6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -61,7 +61,6 @@
      <Compile Include="Assets\Art\Standard Assets\Editor\ImageEffects\SunShaftsEditor.cs" />
      <Compile Include="Assets\Art\Standard Assets\Editor\ImageEffects\TonemappingEditor.cs" />
      <Compile Include="Assets\Art\Standard Assets\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
-     <Compile Include="Assets\Editor\CreateCone.cs" />
      <None Include="Assets\Art\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Art\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Art\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
@@ -210,7 +209,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{2C6C59E1-8378-12CE-6E08-D90D52779DD2}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{AC69AF4C-EDFB-B899-2E67-D97B15A891F3}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

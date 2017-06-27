@@ -20,9 +20,11 @@ public class GameManager : MonoBehaviour {
     private ScannerEffect m_Scan;
     public GameObject InvisibleObstacle;
     public static bool m_IsOnDataStrip = false;
-
     private float SwitchTriggerTimer = 0f;
     private DataStripHandler[] m_DataStrips;
+
+    public static float RealWorldTime=1f;
+    public static float VirtualWorldTime=1f; 
     // Use this for initialization
     void Awake()
     {
@@ -120,5 +122,13 @@ public class GameManager : MonoBehaviour {
     public bool InRealWorld()
     {
         return IsInRealWorld;
+    }
+    public void ChangeRealTime(float time)
+    {
+        RealWorldTime = time;
+    }
+    public void ChangeVirtualTime(float time)
+    {
+        VirtualWorldTime = time; 
     }
 }

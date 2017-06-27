@@ -9,14 +9,17 @@ public class securityMovement : MonoBehaviour {
 	private bool isInvaded = false;
 	private GameObject targetToClear;
 	private Animator anim;
+	private GameManager gameManager;
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
+		gameManager = GameObject.Find ("GameManager").GetComponent<GameManager>();
 	}
 
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log ("security awaken");
+		freezeOrMove();
 
 		if (isInvaded) {
 			float Distance = Vector3.Distance (transform.position, targetToClear.transform.position);
@@ -30,27 +33,40 @@ public class securityMovement : MonoBehaviour {
 
 				transform.rotation = Quaternion.Slerp (transform.rotation, targetRotation, securityRotationSpeed);
 
-				if (cross.y < 0) {
+				//if (cross.y < 0) {
 					//right turn
-					updateAniation (1.0f, -0.7f);
-				} else {
+					//updateAniation (1.0f, -0.7f);
+				//} else {
 					//left turn
-					updateAniation (1.0f, 0.7f);
-				}
+					//updateAniation (1.0f, 0.7f);
+				//}
 			}
 			else{
 				//attack
 
-				updateAniation (0f, 0f);
+				//updateAniation (0f, 0f);
 			}
 		}
 	}
 
-	void updateAniation(float forward_amt, float turn_amt){
-		
-		anim.SetFloat("Forward", forward_amt, 0.1f, Time.deltaTime);
-		anim.SetFloat("Turn", turn_amt, 0.1f, Time.deltaTime);
+//	void updateAniation(float forward_amt, float turn_amt){
+//		
+//		anim.SetFloat("Forward", forward_amt, 0.1f, Time.deltaTime);
+//		anim.SetFloat("Turn", turn_amt, 0.1f, Time.deltaTime);
+//
+//	}
+	void freezeOrMove(){
+		if (gameManager.InRealWorld ()) {
+			
+			securityMovementSpeed = 0.5f;
+			securityRotationSpeed = 1.0f;
 
+		} else {
+
+			securityMovementSpeed = 0.0f;
+			securityRotationSpeed = 0.0f;
+
+		}
 	}
 
 	public void needSecurityHelp(GameObject invader){

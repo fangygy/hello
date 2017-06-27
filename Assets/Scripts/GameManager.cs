@@ -121,4 +121,19 @@ public class GameManager : MonoBehaviour {
     {
         return IsInRealWorld;
     }
+
+	public void SwicthWorld(){
+		if (SwitchTriggerTimer > SwitchWorldThreshold) {
+			//switch
+			IsInRealWorld = !IsInRealWorld;
+			SwitchTriggerTimer = 0.0f;
+
+		}
+	}
+
+	public void EnterVirtualWorld(){
+
+		IsInRealWorld = false;
+
+	}
 }

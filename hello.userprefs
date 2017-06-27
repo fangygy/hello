@@ -1,13 +1,24 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/droneDectection.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Animation/AnimationTestScript.cs">
     <Files>
-      <File FileName="Assets/Scripts/CharacterInfo.cs" Line="204" Column="27" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="123" Column="6" />
-      <File FileName="Assets/Scripts/DataStripHandler.cs" Line="30" Column="2" />
+      <File FileName="Assets/Scripts/CharacterInfo.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DataStripHandler.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/CameraScripts/CameraForwardDistanceSet.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CameraFollow.cs" Line="59" Column="11" />
-      <File FileName="Assets/droneDectection.cs" Line="22" Column="4" />
+      <File FileName="Assets/Scripts/CameraFollow.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/securityMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/droneDectection.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MyCharacterController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BarrierDriver.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/BreakableDoor.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Change.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ComputerShatterControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DoorControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PushTarget.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/HybernationPotController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Animation/AnimationTestScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

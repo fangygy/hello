@@ -12,10 +12,6 @@ public class PushPullControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey(KeyCode.O))
-        {
-            m_Anim.SetBool("PushingBoxes", true);
-            m_Anim.SetFloat("PushFloat",0f);
-        }
+	
 	}
 }

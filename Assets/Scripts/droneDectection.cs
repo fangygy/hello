@@ -4,40 +4,35 @@ using UnityEngine;
 
 public class droneDectection : MonoBehaviour {
 	public float droneMovementSpeed = 0.03f;
+	public float droneRotationSpeed = 10f;
 	public float yOffset = 2f;
 	public float xOffset = 2f;
+	public GameObject drone;
 	private GameManager gameManager;
 	private bool isTargetLocked;
 	private GameObject target;
+	private float originalY;
 	// Use this for initialization
 	void Start () {
-		gameManager = GameObject.Find ("GameManager").GetComponent<GameManager>();
+		gameManager = GameManager.Instance;
 		isTargetLocked = false;
+		originalY = transform.position.y;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (gameManager.InRealWorld ()) {
-			droneMovementSpeed = 0.03f;
-//			Vector3 original = new Vector3 (24.1f, -180f, 0f);
-//			transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, original, Time.deltaTime);
-			
-		} else {
-
-			droneMovementSpeed = 0f;
-//			Vector3 protectMode = new Vector3 (90f, -180f, 0f);
-//			transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, protectMode, Time.deltaTime);
-
-		}
-
+		
 		if (isTargetLocked) {
 			//target locked, call drone and security over
-			GameObject drone = this.transform.parent.gameObject;
 			Vector3 playersPos = new Vector3 (target.transform.position.x, target.transform.position.y, target.transform.position.z);
-			playersPos.y += yOffset;
+			playersPos.y = originalY + yOffset;
 			playersPos.x += xOffset;
-			drone.transform.position = Vector3.MoveTowards (drone.transform.position, playersPos, droneMovementSpeed);
-
+			drone.transform.position = Vector3.MoveTowards (drone.transform.position, playersPos, droneMovementSpeed*Time.deltaTime);
+		//	drone.transform.LookAt (target.transform);
+//			Quaternion targetRotation = Quaternion.LookRotation(target.transform.position - drone.transform.position);
+//			drone.transform.rotation = Quaternion.Slerp (drone.transform.rotation, targetRotation, droneRotationSpeed*Time.deltaTime);
+//			drone.transform.LookAt (target.transform);
+//			drone.transform.eulerAngles = new Vector3 (0, drone.transform.eulerAngles.y, 0);
 		} 
 	}
 
@@ -59,9 +54,14 @@ public class droneDectection : MonoBehaviour {
 	}
 
 	void commWithSecurity(GameObject invader){
+		
 		GameObject security = GameObject.Find ("security");
+		GameObject security2 = GameObject.Find ("security2");
 		securityMovement script = security.GetComponent<securityMovement>();
+		securityMovement script2 = security2.GetComponent<securityMovement>();
+
 		script.needSecurityHelp (invader);
+		script2.needSecurityHelp (invader);
 		//GameObject security2 = GameObject.Find ("security2");
 	}
 }

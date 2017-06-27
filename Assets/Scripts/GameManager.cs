@@ -66,7 +66,6 @@ public class GameManager : MonoBehaviour {
 
     public void SwitchCharacter()
     {
-        
         SwitchTriggerTimer = 0f;
         IsInRealWorld = !IsInRealWorld;
         m_VirtualCharacter.gameObject.SetActive(!IsInRealWorld);

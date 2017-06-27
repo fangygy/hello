@@ -27,7 +27,6 @@ public class enterVirtual : MonoBehaviour {
 		
 		if (other.gameObject.tag == "ControlledPlayer" && Input.GetKeyDown (KeyCode.E)) {
 			//enter the virtual world
-			gameManager.SwicthWorld();
 			Debug.LogWarning("enter!");
 			//change the world mat
 			changeVirtualMat();

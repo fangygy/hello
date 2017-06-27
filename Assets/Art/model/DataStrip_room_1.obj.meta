@@ -7,11 +7,56 @@ ModelImporter:
   fileIDToRecycleName:
     100000: //RootNode
     100002: DotaStrip_room_1:object_19
+    100004: DataStrip_room_1:object_19_polySurface139
+    100006: DataStrip_room_1:object_19_polySurface143
+    100008: DataStrip_room_1:object_19_polySurface153
+    100010: DataStrip_room_1:object_19_polySurface53
+    100012: DataStrip_room_1:object_19_polySurface63
+    100014: polySurface130
+    100016: polySurface213
+    100018: polySurface215
+    100020: polySurface49_DataStrip_room_1:object_19
     400000: //RootNode
     400002: DotaStrip_room_1:object_19
+    400004: DataStrip_room_1:object_19_polySurface139
+    400006: DataStrip_room_1:object_19_polySurface143
+    400008: DataStrip_room_1:object_19_polySurface153
+    400010: DataStrip_room_1:object_19_polySurface53
+    400012: DataStrip_room_1:object_19_polySurface63
+    400014: polySurface130
+    400016: polySurface213
+    400018: polySurface215
+    400020: polySurface49_DataStrip_room_1:object_19
     2300000: DotaStrip_room_1:object_19
+    2300002: DataStrip_room_1:object_19_polySurface139
+    2300004: DataStrip_room_1:object_19_polySurface143
+    2300006: DataStrip_room_1:object_19_polySurface153
+    2300008: DataStrip_room_1:object_19_polySurface53
+    2300010: DataStrip_room_1:object_19_polySurface63
+    2300012: polySurface130
+    2300014: polySurface213
+    2300016: polySurface215
+    2300018: polySurface49_DataStrip_room_1:object_19
     3300000: DotaStrip_room_1:object_19
+    3300002: DataStrip_room_1:object_19_polySurface139
+    3300004: DataStrip_room_1:object_19_polySurface143
+    3300006: DataStrip_room_1:object_19_polySurface153
+    3300008: DataStrip_room_1:object_19_polySurface53
+    3300010: DataStrip_room_1:object_19_polySurface63
+    3300012: polySurface130
+    3300014: polySurface213
+    3300016: polySurface215
+    3300018: polySurface49_DataStrip_room_1:object_19
     4300000: DotaStrip_room_1:object_19
+    4300002: DataStrip_room_1:object_19_polySurface139
+    4300004: DataStrip_room_1:object_19_polySurface143
+    4300006: DataStrip_room_1:object_19_polySurface153
+    4300008: DataStrip_room_1:object_19_polySurface53
+    4300010: DataStrip_room_1:object_19_polySurface63
+    4300012: polySurface130
+    4300014: polySurface213
+    4300016: polySurface215
+    4300018: polySurface49_DataStrip_room_1:object_19
   materials:
     importMaterials: 1
     materialName: 0

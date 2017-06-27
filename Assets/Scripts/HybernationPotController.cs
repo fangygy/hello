@@ -25,12 +25,20 @@ public class HybernationPotController : MonoBehaviour {
     private GameObject m_TargetPosIndicator;
     [SerializeField]
     private bool m_IndicatorVisible;
-    // Use this for initialization
+    [SerializeField]
+    private BoxCollider m_myBoxCollider;
 
+    // Use this for initialization
+    
+    private bool attached = false;
     private bool potOpen = false; 
     private Vector3 initialPos; 
     void Start() {
         initialPos = transform.position;
+        if (m_myBoxCollider == null)
+        {
+            m_myBoxCollider = GetComponent<BoxCollider>();
+        }
     }
 
     // Update is called once per frame
@@ -40,11 +48,21 @@ public class HybernationPotController : MonoBehaviour {
             m_TargetPosIndicator.transform.position = transform.position + m_RelativeTargetPos;
             m_TargetPosIndicator.SetActive(m_IndicatorVisible);
         }
+        if (attached)
+        {
+            if (Input.GetKeyUp(KeyCode.E))
+            {
+                attached = false;
+                GameManager.Instance.GetPhysicalPlayer().GetComponent<CharacterInfo>().SetPushBox(false);
+                transform.parent = null;
+            }
+        }
+        
     }
-
+ 
     void OnCollisionStay(Collision col)
     {
-        
+      
         if (col.gameObject.tag == "ControlledPlayer")
         {
             if (Input.GetKeyDown(KeyCode.E) && m_PotIsMovable)
@@ -53,8 +71,11 @@ public class HybernationPotController : MonoBehaviour {
                 Vector3 lookatPos = transform.position;
                 lookatPos.y = col.gameObject.transform.position.y;
                 col.gameObject.transform.LookAt(lookatPos);
+                attached = true; 
                 gameObject.transform.parent = col.gameObject.transform;
-               
+                //m_myBoxCollider.size = m_myBoxCollider.size * 1.5f;
+               // m_myBoxCollider.isTrigger = true;
+  
                 /*
                 Vector3 diff = transform.position - col.gameObject.transform.position;
                 diff.y = 0f;
@@ -71,12 +92,6 @@ public class HybernationPotController : MonoBehaviour {
             {
                 OpenPot();
             }
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                col.gameObject.GetComponent<CharacterInfo>().SetPushBox(false);
-                gameObject.transform.parent = null;
-            }
-            Debug.Log("Inside trigger stay loop");
         }
     }
     public void OpenPot()

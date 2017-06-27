@@ -180,8 +180,8 @@
      <Compile Include="Assets\Scripts\PushPullControl.cs" />
      <Compile Include="Assets\Scripts\PushTarget.cs" />
      <Compile Include="Assets\Scripts\droneDectection.cs" />
+     <Compile Include="Assets\Scripts\enterVirtual.cs" />
      <Compile Include="Assets\Scripts\securityMovement.cs" />
-     <Compile Include="Assets\enterVirtual.cs" />
      <None Include="Assets\Art\Standard Assets\Effects\GlassRefraction\Shaders\GlassStainedBumpDistort.shader" />
      <None Include="Assets\Art\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Art\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />

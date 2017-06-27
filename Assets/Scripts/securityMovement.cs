@@ -15,7 +15,7 @@ public class securityMovement : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 		gameManager = GameObject.Find ("GameManager").GetComponent<GameManager>();
 	}
-
+   
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log ("security awaken");
@@ -26,7 +26,7 @@ public class securityMovement : MonoBehaviour {
 			Debug.LogWarning (Distance);
 			if(Distance > attackRange){
 				//chase the target
-				transform.position = Vector3.MoveTowards(transform.position, targetToClear.transform.position, securityMovementSpeed);
+				transform.position = Vector3.MoveTowards(transform.position, targetToClear.transform.position, securityMovementSpeed*Time.deltaTime);
 				//look at the target
 				Quaternion targetRotation = Quaternion.LookRotation(targetToClear.transform.position - transform.position);
 				Vector3 cross = Vector3.Cross(transform.rotation*Vector3.forward, targetRotation*Vector3.forward);

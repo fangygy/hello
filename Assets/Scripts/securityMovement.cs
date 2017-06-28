@@ -105,18 +105,22 @@ public class securityMovement : MonoBehaviour {
 
 		else if(!isInvaded && lightControl.intensity > 3f && isReturn == true){
 			//return to the guard point
-			Debug.Log("in return loop");
 			float guardDistance = Vector3.Distance (transform.position, guardPos.position);
 			Debug.Log ("distance:" + guardDistance);
 			if (guardDistance < 0.01f) {
 				//returned
-				Debug.Log("returned");
+				//face the original direction
+				Quaternion q = Quaternion.Euler(new Vector3 (0, guardPos.localEulerAngles.y, 0));
+				//need instant rotation to look normal
+				transform.rotation = Quaternion.Lerp(transform.rotation, q, 100f);
+
 				updateAnimation (0);
+
 				isReturn = false;
+
 
 			} else {
 				//move back 
-				Debug.Log("move back");
 				Vector3 targetPos3 = new Vector3 (guardPos.position.x, originalY, guardPos.position.z);
 				transform.position = Vector3.MoveTowards (transform.position, targetPos3, securityMovementSpeed * Time.deltaTime);
 

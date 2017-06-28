@@ -1122,7 +1122,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &100544888
 Transform:
   m_ObjectHideFlags: 0
@@ -1149,8 +1149,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   droneMovementSpeed: 10
   droneRotationSpeed: 10
-  yOffset: 2
-  xOffset: 2
   drone: {fileID: 2131009068}
 --- !u!23 &100544890
 MeshRenderer:
@@ -1158,7 +1156,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 100544887}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -1191,7 +1189,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 100544887}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -8819,7 +8817,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &887132485
 Transform:
   m_ObjectHideFlags: 0
@@ -8846,8 +8844,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   droneMovementSpeed: 10
   droneRotationSpeed: 10
-  yOffset: 2
-  xOffset: 2
   drone: {fileID: 674341784}
 --- !u!23 &887132487
 MeshRenderer:
@@ -8855,7 +8851,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 887132484}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -8888,7 +8884,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 887132484}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1

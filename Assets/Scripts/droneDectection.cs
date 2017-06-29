@@ -39,7 +39,7 @@ public class droneDectection : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider other){
-		if (!isTargetLocked) {
+		if (!isTargetLocked && gameManager.InRealWorld()) {
 			//waiting and detecting
 			if (other.gameObject.tag == "ControlledPlayer") {
 				//drone now in place, maybe freeze the player here for a security scan;

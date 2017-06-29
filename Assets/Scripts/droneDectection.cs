@@ -10,9 +10,11 @@ public class droneDectection : MonoBehaviour {
 	private bool isTargetLocked;
 	private GameObject target;
 	private float originalY;
+	private Light lightControl;
 	// Use this for initialization
 	void Start () {
 		gameManager = GameManager.Instance;
+		lightControl = GameObject.Find ("LightControl").GetComponent<Light> ();
 		isTargetLocked = false;
 		originalY = drone.transform.position.y;
 	}
@@ -39,7 +41,7 @@ public class droneDectection : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider other){
-		if (!isTargetLocked && gameManager.InRealWorld()) {
+		if (!isTargetLocked && lightControl.intensity > 1f && gameManager.InRealWorld()) {
 			//waiting and detecting
 			if (other.gameObject.tag == "ControlledPlayer") {
 				//drone now in place, maybe freeze the player here for a security scan;
@@ -48,6 +50,7 @@ public class droneDectection : MonoBehaviour {
 
 				//found invader
 				isTargetLocked = true;
+				blockDataStrip ();
 				target = other.gameObject;
 				commWithSecurity (other.gameObject);
 
@@ -65,5 +68,9 @@ public class droneDectection : MonoBehaviour {
 		script.needSecurityHelp (invader);
 		script2.needSecurityHelp (invader);
 		//GameObject security2 = GameObject.Find ("security2");
+	}
+
+	void blockDataStrip(){
+		gameManager.setDataStripStatus (true);
 	}
 }

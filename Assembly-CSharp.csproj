@@ -181,6 +181,8 @@
      <Compile Include="Assets\Scripts\PushTarget.cs" />
      <Compile Include="Assets\Scripts\TriangleExplosion.cs" />
      <Compile Include="Assets\Scripts\VirtualWallControlScript.cs" />
+     <Compile Include="Assets\Scripts\breakPowerNode.cs" />
+     <Compile Include="Assets\Scripts\crouchOnlyZone.cs" />
      <Compile Include="Assets\Scripts\droneDectection.cs" />
      <Compile Include="Assets\Scripts\enterVirtual.cs" />
      <Compile Include="Assets\Scripts\securityMovement.cs" />

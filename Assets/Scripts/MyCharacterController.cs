@@ -85,7 +85,7 @@ public class MyCharacterController : MonoBehaviour
     }
     void OnTriggerStay(Collider col)
     {
-        if (Input.GetKeyDown(KeyCode.LeftControl))
+		if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             if (col.tag == "WorldSwitchTriggerArea"&&m_Character.IsPhysicalCharacter())
             {

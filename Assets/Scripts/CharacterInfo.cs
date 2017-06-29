@@ -42,6 +42,8 @@ public class CharacterInfo : MonoBehaviour
     bool m_Crouching;
     bool m_MovingBox = false;
 
+	bool isInCrouchZone = false;
+
     void Start()
     {
         m_Animator = GetComponent<Animator>();
@@ -83,7 +85,7 @@ public class CharacterInfo : MonoBehaviour
 
         ScaleCapsuleForCrouching(crouch);
         PreventStandingInLowHeadroom();
-
+		PreventStandingInCrouchOnlyZone ();
         // send input and other state parameters to the animator
 
         UpdateAnimator(move);
@@ -134,6 +136,19 @@ public class CharacterInfo : MonoBehaviour
         }
     }
 
+	void PreventStandingInCrouchOnlyZone(){
+		if (isInCrouchZone) {
+			if (!m_Crouching) {
+				m_Crouching = true;
+			}
+		}
+	}
+
+	public void setCrouchZone (bool inCrouchZone){
+		
+		isInCrouchZone = inCrouchZone;
+
+	}
 
     void UpdateAnimator(Vector3 move)
     {

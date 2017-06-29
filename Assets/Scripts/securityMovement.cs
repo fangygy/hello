@@ -8,15 +8,17 @@ public class securityMovement : MonoBehaviour {
 	public float attackRange = 2.0f;
 	public Transform checkPos;
 	public Transform guardPos;
+	private float alarmFadeSpeed = 5.0f;
 	private bool isInvaded = false;
 	private GameObject targetToClear;
 	private Animator anim;
 	private GameManager gameManager;
 	private float originalY;
 	private Light lightControl;
-	private float timeCheck = 3f;
+	private float timeCheck = 15f;
 	private bool isReturn = false;
 	private bool inFix = false;
+	private bool isDeacreasing = true;
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator> ();
@@ -30,7 +32,7 @@ public class securityMovement : MonoBehaviour {
 	void Update () {
 		if (isInvaded) {
 			//found invader
-
+			turnOnAlarm();
 			float Distance = Vector3.Distance (transform.position, targetToClear.transform.position);
 
 			if (Distance > attackRange) {
@@ -95,7 +97,7 @@ public class securityMovement : MonoBehaviour {
 					//Debug.Log("prep to return");
 					lightControl.intensity = 3.32f;
 					isReturn = true;
-					timeCheck = 3f;
+					timeCheck = 15f;
 					inFix = false;
 					//face the origin
 					transform.LookAt(guardPos);
@@ -133,6 +135,29 @@ public class securityMovement : MonoBehaviour {
 			updateAnimation (0);
 
 		}
+	}
+
+	void turnOnAlarm(){
+
+		if (isInvaded) {
+			lightControl.color = Color.red;
+			if (!isDeacreasing) {
+				//brighter
+				lightControl.intensity = Mathf.Lerp (lightControl.intensity, 3.32f, alarmFadeSpeed * Time.deltaTime);
+				if (lightControl.intensity > 3.30f) {
+					isDeacreasing = true;
+				}
+
+			} else {
+				//dimmer
+				lightControl.intensity = Mathf.Lerp (lightControl.intensity, 0f, alarmFadeSpeed * Time.deltaTime);
+				if (lightControl.intensity < 0.01f) {
+					isDeacreasing = false;
+				}
+			}
+
+		}
+
 	}
 
 	void updateAnimation(int state){

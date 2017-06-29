@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
 
     public static float RealWorldTime=1f;
     public static float VirtualWorldTime=1f; 
+	private bool isDataBlocked = false;
     // Use this for initialization
     void Awake()
     {
@@ -68,6 +69,9 @@ public class GameManager : MonoBehaviour {
 
     public void SwitchCharacter()
     {
+		if (isDataBlocked)
+			return;
+		
         SwitchTriggerTimer = 0f;
         IsInRealWorld = !IsInRealWorld;
         m_VirtualCharacter.gameObject.SetActive(!IsInRealWorld);
@@ -84,6 +88,7 @@ public class GameManager : MonoBehaviour {
                 dsh.UseNormalMat();
             }
         }
+
         else
         {
             m_Scan.ScanOutward();
@@ -130,4 +135,9 @@ public class GameManager : MonoBehaviour {
     {
         VirtualWorldTime = time; 
     }
+	public void setDataStripStatus(bool isBlocked){
+		
+		isDataBlocked = isBlocked;
+
+	}
 }
